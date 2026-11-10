@@ -1,0 +1,12 @@
+{
+  "_note": "Expected survival in water by temperature, from widely published cold-water survival tables. Placeholder; verify before release.",
+  "bands": [
+    { "maxWaterTempC": 0.3, "minutes": [15, 45] },
+    { "maxWaterTempC": 4.4, "minutes": [30, 90] },
+    { "maxWaterTempC": 10.0, "minutes": [60, 180] },
+    { "maxWaterTempC": 15.5, "minutes": [60, 360] },
+    { "maxWaterTempC": 21.0, "minutes": [120, 2400] },
+    { "maxWaterTempC": 99.0, "minutes": [180, 4800] }
+  ],
+  "pfdMultiplier": 1.5
+}

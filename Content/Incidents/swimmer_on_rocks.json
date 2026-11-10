@@ -3,10 +3,11 @@
   "id": "swimmer_on_rocks",
   "category": "sar",
   "summary": "Person stranded on rocks by the incoming tide",
-  "spawn": { "landmarkKinds": ["sea_stack", "island", "beach"], "timeOfDay": "day", "weight": 10 },
+  "spawn": { "weight": 10, "timeOfDay": "day", "zone": "landmark", "landmarkKinds": ["sea_stack", "island", "beach"], "offsetM": [20, 150] },
   "truth": { "persons": [1, 2], "pfdChance": 0.0, "hoaxChance": 0.03 },
-  "report": { "positionErrorM": [50, 400], "personsKnown": true },
-  "clock": { "kind": "rising_tide", "_note": "rock covers at a set tide height; plus cold-water survival once in the water" },
-  "resolution": { "requires": ["recover_persons"], "needsCapability": "surf" },
+  "report": { "positionErrorM": [50, 300], "personsKnown": true, "delayMinutes": [0, 10] },
+  "clock": { "kind": "rising_tide", "safeMinutes": [30, 120], "_note": "persons are safe until the rock covers, then the cold-water clock starts" },
+  "drift": "none",
+  "resolution": { "needsCapability": "surf", "onSceneMinutes": 10 },
   "rewards": { "readinessPerLife": 50, "timeBonusUnderMin": 25 }
 }

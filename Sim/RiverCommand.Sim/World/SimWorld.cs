@@ -14,6 +14,7 @@ namespace RiverCommand.Sim
         public SimClock Clock { get; }
         public SeededRandom Random { get; }
         public SeaEnvironment Environment { get; }
+        public IncidentSystem Incidents { get; }
 
         private readonly List<Unit> _units = new List<Unit>();
         private readonly List<SimEvent> _events = new List<SimEvent>();
@@ -31,6 +32,7 @@ namespace RiverCommand.Sim
             {
                 WaterTempC = Map.WaterTempC,
             };
+            Incidents = new IncidentSystem(this);
         }
 
         public Unit SpawnUnit(string defId, Vec2? position = null)
@@ -53,8 +55,7 @@ namespace RiverCommand.Sim
             crewFacts.BarState = Environment.LastBarReport?.State;
             crewFacts.BarReportStale = Environment.IsBarReportStale(t);
             crewFacts.VisibilityNm = Environment.VisibilityNm;
-            double hour = Clock.HourOfDay;
-            crewFacts.Night = hour < 6 || hour >= 20;
+            crewFacts.Night = IsNight;
             return GarCalculator.Assess(crewFacts);
         }
 
@@ -66,10 +67,13 @@ namespace RiverCommand.Sim
             Emit(new UnitLaunchedEvent(unit.Id, gar));
         }
 
+        public bool IsNight => Clock.HourOfDay < 6 || Clock.HourOfDay >= 20;
+
         public void Step()
         {
             double dt = SimClock.TickSeconds;
             foreach (var unit in _units) unit.Orders.Tick(unit, this, dt);
+            Incidents.Tick(dt);
             Clock.Advance();
         }
 
@@ -110,6 +114,13 @@ namespace RiverCommand.Sim
                 MixD(u.FuelGal);
                 Mix((ulong)u.Status);
                 Mix((ulong)u.Orders.Count);
+            }
+            foreach (var inc in Incidents.All)
+            {
+                Mix((ulong)inc.Id);
+                Mix((ulong)inc.State);
+                MixD(inc.TruePosition.X); MixD(inc.TruePosition.Y);
+                foreach (var p in inc.Persons) { Mix((ulong)p.State); MixD(p.DiesAt); }
             }
             return h;
         }

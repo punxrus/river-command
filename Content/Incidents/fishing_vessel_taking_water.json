@@ -3,10 +3,11 @@
   "id": "fishing_vessel_taking_water",
   "category": "sar",
   "summary": "Commercial fishing vessel taking on water offshore",
-  "spawn": { "zone": "offshore", "distanceNm": [3, 10], "timeOfDay": "any", "weight": 8 },
-  "truth": { "persons": [2, 4], "pfdChance": 0.9, "hoaxChance": 0.0, "floodRateGpm": [50, 400] },
-  "report": { "positionErrorM": [100, 2000], "personsKnown": true },
-  "clock": { "kind": "vessel_flooding", "_note": "dewatering pump or tow before it sinks; then persons in water" },
-  "resolution": { "requires": ["dewater_or_tow"], "needsCapability": "tow" },
-  "rewards": { "readinessPerLife": 50, "vesselSavedBonus": 40 }
+  "spawn": { "weight": 8, "timeOfDay": "any", "zone": "offshore", "distanceNm": [3, 10] },
+  "truth": { "persons": [2, 4], "pfdChance": 0.9, "hoaxChance": 0.0 },
+  "report": { "positionErrorM": [100, 1500], "personsKnown": true, "delayMinutes": [0, 5] },
+  "clock": { "kind": "vessel_flooding", "safeMinutes": [40, 150], "_note": "vessel sinks at the end of safeMinutes unless a tow-capable unit reaches it; then persons are in the water" },
+  "drift": "offshore",
+  "resolution": { "needsCapability": "tow", "onSceneMinutes": 20 },
+  "rewards": { "readinessPerLife": 50, "timeBonusUnderMin": 40 }
 }

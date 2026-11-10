@@ -3,10 +3,11 @@
   "id": "capsized_river_boater",
   "category": "sar",
   "summary": "Small boat capsized in the river, persons in the water",
-  "spawn": { "landmarkKinds": ["river"], "timeOfDay": "day", "weight": 6 },
+  "spawn": { "weight": 6, "timeOfDay": "day", "zone": "landmark", "landmarkKinds": ["river"], "offsetM": [0, 400] },
   "truth": { "persons": [1, 3], "pfdChance": 0.5, "hoaxChance": 0.05 },
-  "report": { "positionErrorM": [200, 1200], "personsKnown": false },
-  "clock": { "kind": "cold_water", "drift": "river_current" },
-  "resolution": { "requires": ["recover_persons"] },
+  "report": { "positionErrorM": [200, 1000], "personsKnown": false, "delayMinutes": [2, 15] },
+  "clock": { "kind": "cold_water" },
+  "drift": "river",
+  "resolution": { "needsCapability": null, "onSceneMinutes": 5 },
   "rewards": { "readinessPerLife": 50, "timeBonusUnderMin": 30 }
 }

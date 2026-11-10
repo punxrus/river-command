@@ -1,0 +1,11 @@
+{
+  "_note": "Detection and spawning tuning. Placeholder values for play-testing.",
+  "detectRadiusM": 150,
+  "detectChancePerSecond": 0.15,
+  "minVisibilityFactor": 0.2,
+  "onSceneRadiusM": 60,
+  "incidentsPerHour": 0.8,
+  "gridCellM": 100,
+  "gridHalfSizeCells": 40,
+  "screenRevealsHoaxChance": 0.6
+}

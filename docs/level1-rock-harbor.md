@@ -18,3 +18,17 @@ Everything here is fictional: the town of Rock Harbor, the Alder River, Kettle I
 
 ## Slice incidents
 Swimmer on rocks (rising tide), fishing vessel taking on water offshore, capsized river boater, hoax flare.
+
+## How a case plays (sim, as built)
+1. A call arrives with a reported position that can be hundreds of meters off. A heat map shows where the
+   target probably is, and it drifts with the river or offshore current.
+2. Optional: screen the call (callback). Exposes about 60% of hoaxes; confirms persons on genuine calls.
+3. Order a **Search** on the case. The pattern is laid on the moving water, so it drifts with the target.
+4. When a unit spots the target it breaks off and goes straight in. The case needs the right asset:
+   surf rescues need the 47' MLB; a sinking fishing vessel needs a tow-capable boat to save the hull.
+5. Survival clocks: people in the water have time set by water temperature (and a life jacket);
+   people on rocks are safe until the tide covers them; a flooding vessel sinks at a set time.
+6. Standing down a hoax earns readiness; standing down a real case fails it.
+
+Balance check: one RB-S searching for a river capsize 1.5 km from the station finds and saves everyone in
+96% of 200 seeded runs, average 8.5 minutes.

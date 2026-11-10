@@ -11,7 +11,14 @@ namespace RiverCommand.Sim
         private readonly Dictionary<string, UnitDef> _units = new Dictionary<string, UnitDef>(StringComparer.Ordinal);
         private readonly Dictionary<string, MapDef> _maps = new Dictionary<string, MapDef>(StringComparer.Ordinal);
 
+        private readonly Dictionary<string, IncidentDef> _incidents = new Dictionary<string, IncidentDef>(StringComparer.Ordinal);
+        private readonly List<IncidentDef> _incidentList = new List<IncidentDef>();
+
         public BarRules BarRules { get; private set; } = new BarRules();
+        public SurvivalRules SurvivalRules { get; private set; } = new SurvivalRules();
+        public SearchRules SearchRules { get; private set; } = new SearchRules();
+        /// <summary>Incident templates in stable (file name) order.</summary>
+        public IReadOnlyList<IncidentDef> IncidentList => _incidentList;
         public IReadOnlyDictionary<string, UnitDef> Units => _units;
         public IReadOnlyDictionary<string, MapDef> Maps => _maps;
 
@@ -34,8 +41,15 @@ namespace RiverCommand.Sim
                 var map = Parse<MapDef>(file);
                 db._maps.Add(map.Id, map);
             }
-            var barFile = Path.Combine(contentRoot, "Rules", "bar.json");
-            if (File.Exists(barFile)) db.BarRules = Parse<BarRules>(barFile);
+            foreach (var file in Files(contentRoot, "Incidents"))
+            {
+                var def = Parse<IncidentDef>(file);
+                db._incidents.Add(def.Id, def);
+                db._incidentList.Add(def);
+            }
+            db.BarRules = ParseRule(contentRoot, "bar.json", db.BarRules);
+            db.SurvivalRules = ParseRule(contentRoot, "survival.json", db.SurvivalRules);
+            db.SearchRules = ParseRule(contentRoot, "search.json", db.SearchRules);
             return db;
         }
 
@@ -44,6 +58,15 @@ namespace RiverCommand.Sim
 
         public MapDef Map(string id) =>
             _maps.TryGetValue(id, out var m) ? m : throw new KeyNotFoundException($"Unknown map '{id}'");
+
+        public IncidentDef Incident(string id) =>
+            _incidents.TryGetValue(id, out var d) ? d : throw new KeyNotFoundException($"Unknown incident '{id}'");
+
+        private static T ParseRule<T>(string root, string name, T fallback)
+        {
+            var file = Path.Combine(root, "Rules", name);
+            return File.Exists(file) ? Parse<T>(file) : fallback;
+        }
 
         private static IEnumerable<string> Files(string root, string folder)
         {

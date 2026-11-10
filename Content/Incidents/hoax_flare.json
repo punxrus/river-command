@@ -3,10 +3,12 @@
   "id": "hoax_flare",
   "category": "screening",
   "summary": "Red flare reported offshore, no vessel overdue",
-  "spawn": { "zone": "offshore", "timeOfDay": "night", "weight": 3 },
-  "truth": { "persons": [0, 0], "hoaxChance": 1.0 },
-  "report": { "positionErrorM": [1000, 5000], "personsKnown": false },
-  "screening": { "callbackRevealsChance": 0.6, "_note": "callback to reporter, check overdue list, check fireworks reports" },
-  "resolution": { "requires": ["screen_or_search"] },
-  "rewards": { "readinessForCorrectScreen": 15, "penaltyPerHourSearched": 5 }
+  "spawn": { "weight": 3, "timeOfDay": "night", "zone": "offshore", "distanceNm": [2, 8] },
+  "truth": { "persons": [0, 0], "pfdChance": 0.0, "hoaxChance": 1.0 },
+  "report": { "positionErrorM": [1000, 4000], "personsKnown": false, "delayMinutes": [0, 5] },
+  "clock": { "kind": "none" },
+  "drift": "none",
+  "resolution": { "needsCapability": null, "onSceneMinutes": 0 },
+  "rewards": { "readinessPerLife": 0, "timeBonusUnderMin": 0 },
+  "_note": "real flare reports can also be genuine; hoaxChance on other templates covers that side"
 }
