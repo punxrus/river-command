@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "rbs29",
+  "displayName": "29' Response Boat-Small",
+  "domain": "surface",
+  "tier": 1,
+  "stats": { "maxSpeedKts": 40, "cruiseSpeedKts": 30, "fuelCapacityGal": 105, "burnGalPerHourCruise": 30, "idleBurnFraction": 0.15 },
+  "crew": { "required": ["coxswain", "bcm", "bcm"], "maxPassengers": 4 },
+  "capabilities": ["search", "tow", "escort", "boarding"],
+  "limits": { "maxBarBreakerFt": 4, "maxWaveFt": 6, "iceOps": false },
+  "presentation": { "prefab": "Units/RBS29", "icon": "icon_boat_small" }
+}

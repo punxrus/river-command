@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "mlb47",
+  "displayName": "47' Motor Lifeboat",
+  "domain": "surface",
+  "tier": 1,
+  "stats": { "maxSpeedKts": 25, "cruiseSpeedKts": 20, "fuelCapacityGal": 400, "burnGalPerHourCruise": 45, "idleBurnFraction": 0.2 },
+  "crew": { "required": ["coxswain", "engineer", "bcm", "bcm"], "maxPassengers": 5 },
+  "capabilities": ["search", "tow", "surf", "medevac", "escort"],
+  "limits": { "maxBarBreakerFt": 20, "maxWaveFt": 30, "iceOps": false },
+  "presentation": { "prefab": "Units/MLB47", "icon": "icon_boat_lifeboat" }
+}

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "hoax_flare",
+  "category": "screening",
+  "summary": "Red flare reported offshore, no vessel overdue",
+  "spawn": { "zone": "offshore", "timeOfDay": "night", "weight": 3 },
+  "truth": { "persons": [0, 0], "hoaxChance": 1.0 },
+  "report": { "positionErrorM": [1000, 5000], "personsKnown": false },
+  "screening": { "callbackRevealsChance": 0.6, "_note": "callback to reporter, check overdue list, check fireworks reports" },
+  "resolution": { "requires": ["screen_or_search"] },
+  "rewards": { "readinessForCorrectScreen": 15, "penaltyPerHourSearched": 5 }
+}

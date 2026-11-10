@@ -1,0 +1,6 @@
+{
+  "openBelowFt": 4,
+  "closedAtFt": 8,
+  "ebbSteepeningPerKnot": 0.15,
+  "reportStaleAfterSeconds": 14400
+}

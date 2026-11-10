@@ -1,0 +1,25 @@
+# .NET
+bin/
+obj/
+*.user
+TestResults/
+
+# Unity
+Unity/[Ll]ibrary/
+Unity/[Tt]emp/
+Unity/[Oo]bj/
+Unity/[Bb]uild/
+Unity/[Bb]uilds/
+Unity/[Ll]ogs/
+Unity/[Uu]ser[Ss]ettings/
+Unity/*.csproj
+Unity/*.sln
+*.pidb.meta
+*.pdb.meta
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vs/
+.idea/
+.vscode/

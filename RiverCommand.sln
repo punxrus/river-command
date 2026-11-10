@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sim", "Sim", "{080E8397-E5F9-496D-88FB-C3F8A3C3AC4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverCommand.Sim", "Sim\RiverCommand.Sim\RiverCommand.Sim.csproj", "{9609746D-A67E-4B02-B5B5-54E7AB32C83A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverCommand.Sim.Tests", "Sim\RiverCommand.Sim.Tests\RiverCommand.Sim.Tests.csproj", "{17854C2D-C5A2-434D-A170-E2B40F986A49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9609746D-A67E-4B02-B5B5-54E7AB32C83A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9609746D-A67E-4B02-B5B5-54E7AB32C83A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9609746D-A67E-4B02-B5B5-54E7AB32C83A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9609746D-A67E-4B02-B5B5-54E7AB32C83A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17854C2D-C5A2-434D-A170-E2B40F986A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17854C2D-C5A2-434D-A170-E2B40F986A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17854C2D-C5A2-434D-A170-E2B40F986A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17854C2D-C5A2-434D-A170-E2B40F986A49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9609746D-A67E-4B02-B5B5-54E7AB32C83A} = {080E8397-E5F9-496D-88FB-C3F8A3C3AC4A}
+		{17854C2D-C5A2-434D-A170-E2B40F986A49} = {080E8397-E5F9-496D-88FB-C3F8A3C3AC4A}
+	EndGlobalSection
+EndGlobal

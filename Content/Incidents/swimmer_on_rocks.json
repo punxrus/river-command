@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "swimmer_on_rocks",
+  "category": "sar",
+  "summary": "Person stranded on rocks by the incoming tide",
+  "spawn": { "landmarkKinds": ["sea_stack", "island", "beach"], "timeOfDay": "day", "weight": 10 },
+  "truth": { "persons": [1, 2], "pfdChance": 0.0, "hoaxChance": 0.03 },
+  "report": { "positionErrorM": [50, 400], "personsKnown": true },
+  "clock": { "kind": "rising_tide", "_note": "rock covers at a set tide height; plus cold-water survival once in the water" },
+  "resolution": { "requires": ["recover_persons"], "needsCapability": "surf" },
+  "rewards": { "readinessPerLife": 50, "timeBonusUnderMin": 25 }
+}

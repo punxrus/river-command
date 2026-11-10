@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "fishing_vessel_taking_water",
+  "category": "sar",
+  "summary": "Commercial fishing vessel taking on water offshore",
+  "spawn": { "zone": "offshore", "distanceNm": [3, 10], "timeOfDay": "any", "weight": 8 },
+  "truth": { "persons": [2, 4], "pfdChance": 0.9, "hoaxChance": 0.0, "floodRateGpm": [50, 400] },
+  "report": { "positionErrorM": [100, 2000], "personsKnown": true },
+  "clock": { "kind": "vessel_flooding", "_note": "dewatering pump or tow before it sinks; then persons in water" },
+  "resolution": { "requires": ["dewater_or_tow"], "needsCapability": "tow" },
+  "rewards": { "readinessPerLife": 50, "vesselSavedBonus": 40 }
+}
