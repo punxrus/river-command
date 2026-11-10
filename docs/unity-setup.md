@@ -14,4 +14,4 @@ The Unity project is not created yet. These are the steps to create it so it use
 5. Copy or symlink `Content/` to `Unity/Assets/StreamingAssets/Content/` so the game loads the same JSON.
 6. Commit the generated `Unity/` folder except what `.gitignore` excludes.
 
-After step 6, tell Claude, and the unity-presentation agent will add the bridge, camera, and HUD scripts.
+Recommended: let a Claude Code session on the PC do these steps. See `docs/handoff-local-session.md`.
